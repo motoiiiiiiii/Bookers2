@@ -3,13 +3,14 @@
 		<h2>User info</h2>
 		<table class="table">
 			<tbody>
+				<tr><%= image_tag attachment_url(@user, :profile_image, :fill, 100, 100, format: "jpg", fallback: "no_image.jpg") %></tr>
 				<tr>
 					<td>name</td>
 					<td><p><%= @user.name %></p></td>
 				</tr>
 				<tr>
 					<td>introduction</td>
-					<td>からむ作ってから</td>
+					<td><p><%= @user.introduction %></p></td>
 				</tr>
 			</tbody>
 		</table>

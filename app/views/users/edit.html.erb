@@ -1,8 +1,22 @@
 <h2>User info</h2>
 <%= form_for(@user, url:"/users/#{@user.id}") do |f| %>
-  <h4>name</h4>
-  <%= f.text_field :name %>
-  <%= f.submit 'Update User' %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
 
+  <div class="field">
+  <%= f.label :profile_image %>
+    <%= f.attachment_field :profile_image %>
+  </div>
+  
+  <div class="field">
+  <%= f.label :introduction %>
+    <%= f.text_field :introduction %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit 'Update User' %>
+  </div>
 <% end %>
 
