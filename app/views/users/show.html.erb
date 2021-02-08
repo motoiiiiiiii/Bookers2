@@ -1,0 +1,22 @@
+<div class="row">
+	<div class="col-md-3">
+		<h2>User info</h2>
+		<table class="table">
+			<tbody>
+				<tr>
+					<td>name</td>
+					<td><p><%= @user.name %></p></td>
+				</tr>
+				<tr>
+					<td>introduction</td>
+					<td>からむ作ってから</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<%= link_to edit_user_path(@user.id) do %>
+		<p class="btn btn-light">へんしゅう</p>
+		<% end %>
+	</div>
+	<div class="col-md-8">コンテンツ</div>
+</div>
