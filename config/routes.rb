@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'users/:id/edit' =>'users#edit', as: 'edit_user'
   get 'users' =>'users#index', as:'users'
   get 'books' =>'books#index', as: 'books'
+  post 'books'=>'books#create'
   patch 'users/:id' => 'users#update', as: 'update_user'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
