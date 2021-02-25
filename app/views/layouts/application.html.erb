@@ -34,12 +34,12 @@
          <% if user_signed_in? %> 
          <ul class="navbar-nav">
           <li class="nav-item">
-            Home
+            <%= link_to "home", user_path(current_user), class: "nav-link" %>
           </li>
         </ul>
         <ul class="navbar-nav">
           <li class="nav-item">
-            Users
+            <%= link_to "user", users_path, class: "nav-link" %>
           </li>
         </ul>
         <ul class="navbar-nav">
