@@ -37,7 +37,7 @@
 			<tbody>
 				<% @books.each do |book| %>
 				<tr>
-					<td>写真</td>
+					<td><%= image_tag attachment_url(book.user, :profile_image, :fill, 50, 50, format: "jpg", fallback: "no_image.jpg"), size:'50x50' %></td>
 					<td><%= book.title %></td>
 					<td><%= book.body %></td>
 				</tr>

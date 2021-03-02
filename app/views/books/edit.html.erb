@@ -1,0 +1,10 @@
+<div class="col-md-12">
+		<h2>Editing Book</h2>
+		<%= form_for(@books, url:"/books/#{@books.id}") do |f| %>
+			<%= f.label :title %>
+			<%= f.text_field :title %>
+			<%= f.label :option %>
+			<%= f.text_field :body %>
+			<%= f.submit 'Update Book' %>
+		<% end %>
+	</div>
