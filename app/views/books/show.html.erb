@@ -31,7 +31,7 @@
 		<table class="table">
 			<tbody>
 				<tr>
-					<td><%= image_tag attachment_url(@user, :profile_image, :fill, 50, 50, format: "jpg", fallback: "no_image.jpg"), size:'50x50' %></td>
+					<td><%= image_tag attachment_url(@books.user, :profile_image, :fill, 50, 50, format: "jpg", fallback: "no_image.jpg"), size:'50x50' %></td>
 						<td><%= @books.title %></td>
 						<td><%= @books.body %></td>
 						<td><%= link_to "edit", edit_book_path %></td>
