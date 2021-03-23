@@ -1,10 +1,25 @@
 <div class="col-md-12">
-		<h2>Editing Book</h2>
-		<%= form_for(@books, url:"/books/#{@books.id}") do |f| %>
-			<%= f.label :title %>
-			<%= f.text_field :title %>
-			<%= f.label :option %>
-			<%= f.text_field :body %>
-			<%= f.submit 'Update Book' %>
-		<% end %>
+	<% if flash[:notice] %>
+	<p id="notice">
+		<%= flash[:notice] %>
+	</p>
+	<% end %>
+	<% if @books.errors.any? %>
+	<div id="error_explanation" class="alert alert-danger">
+		<h2><%= pluralize(@book.errors.count, "error") %> prohibited this obj from being saved:</h2>
+		<ul>
+			<% @books.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+			<% end %>
+		</ul>
 	</div>
+	<% end %>
+	<h2>Editing Book</h2>
+	<%= form_for(@books, url:"/books/#{@books.id}") do |f| %>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+	<%= f.label :option %>
+	<%= f.text_field :body %>
+	<%= f.submit 'Update Book' %>
+	<% end %>
+</div>

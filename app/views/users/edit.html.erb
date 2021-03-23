@@ -1,31 +1,37 @@
 <h2>User info</h2>
+<% if flash[:notice] %>
+<p id="notice">
+ <%= flash[:notice] %>
+</p>
+<% end %>
 <% if @user.errors.any? %>
-  <div id="error_explanation" class="alert alert-danger">
-    <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
+<div id="error_explanation" class="alert alert-danger">
+  <h2><%= pluralize(@user.errors.count, "error") %> prohibited this obj from being saved:</h2>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
 <% end %>
 <%= form_for(@user, url:"/users/#{@user.id}") do |f| %>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+<div class="field">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
 
-  <div class="field">
+<div class="field">
   <%= f.label :profile_image %>
-    <%= f.attachment_field :profile_image %>
-  </div>
-  
-  <div class="field">
+  <%= f.attachment_field :profile_image %>
+</div>
+
+<div class="field">
   <%= f.label :introduction %>
-    <%= f.text_field :introduction %>
-  </div>
-  
-  <div class="actions">
-    <%= f.submit 'Update User' %>
-  </div>
+  <%= f.text_field :introduction %>
+</div>
+
+<div class="actions">
+  <%= f.submit 'Update User' %>
+</div>
 <% end %>
 

@@ -1,6 +1,21 @@
 <div class="row">
 	<div class="col-md-3">
 		<h2>User info</h2>
+		<% if flash[:notice] %>
+		<p id="notice">
+			<%= flash[:notice] %>
+		</p>
+		<% end %>
+		<% if @book.errors.any? %>
+		<div id="error_explanation" class="alert alert-danger">
+			<h2><%= pluralize(@book.errors.count, "error") %> prohibited this obj from being saved:</h2>
+			<ul>
+				<% @book.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+		<% end %>
 		<table class="table">
 			<tbody>
 				<tr><%= image_tag attachment_url(@user, :profile_image, :fill, 100, 100, format: "jpg", fallback: "no_image.jpg") %></tr>
@@ -32,12 +47,12 @@
 			<tbody>
 				<tr>
 					<td><%= image_tag attachment_url(@books.user, :profile_image, :fill, 50, 50, format: "jpg", fallback: "no_image.jpg"), size:'50x50' %></td>
-						<td><%= @books.title %></td>
-						<td><%= @books.body %></td>
-						<td><%= link_to "edit", edit_book_path %></td>
-						<td><%= link_to "destroy", destroy_book_path, method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+					<td><%= @books.title %></td>
+					<td><%= @books.body %></td>
+					<td><%= link_to "edit", edit_book_path %></td>
+					<td><%= link_to "destroy", destroy_book_path, method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
+</div>
