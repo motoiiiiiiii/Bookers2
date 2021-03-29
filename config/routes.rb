@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'books#home', as: 'home'
+  root 'books#home'
   get 'home/about' =>'home#about', as: 'about'
   get 'users/:id' =>'users#show', as: 'user'
   get 'users/:id/edit' =>'users#edit', as: 'edit_user'

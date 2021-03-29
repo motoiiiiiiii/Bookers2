@@ -6,7 +6,7 @@
 	<% end %>
 	<% if @books.errors.any? %>
 	<div id="error_explanation" class="alert alert-danger">
-		<h2><%= pluralize(@book.errors.count, "error") %> prohibited this obj from being saved:</h2>
+		<h2><%= pluralize(@books.errors.count, "error") %> prohibited this obj from being saved:</h2>
 		<ul>
 			<% @books.errors.full_messages.each do |message| %>
 			<li><%= message %></li>
@@ -21,5 +21,7 @@
 	<%= f.label :option %>
 	<%= f.text_field :body %>
 	<%= f.submit 'Update Book' %>
+	<%= link_to "Show", book_path %>
+	<%= link_to "Back", books_path %>
 	<% end %>
 </div>

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	before_action :correct_user,   only: [:edit, :update, :destroy]
 	def home
 		
 	end
@@ -38,8 +39,8 @@ class UsersController < ApplicationController
 
 	def correct_user
 		user = User.find(params[:id])
-		unless current_user.id == book.user.id
-			redirect_to user_path(user)
+		unless current_user.id == user.id
+			redirect_to user_path(current_user)
 		end
 	end
 end
